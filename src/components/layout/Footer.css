@@ -1,0 +1,32 @@
+.footer {
+    background-color: #050505;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 4rem 0 2rem;
+    margin-top: 4rem;
+    color: var(--color-text-secondary);
+}
+
+.footer__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    gap: 2rem;
+    text-align: center;
+}
+
+.footer__info h3 {
+    color: var(--color-accent-primary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-family-serif);
+}
+
+.footer__info ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer__contact p {
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+}

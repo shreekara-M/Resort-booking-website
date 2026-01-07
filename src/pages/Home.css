@@ -1,0 +1,349 @@
+/* Keep Hero Animations */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    }
+
+    50% {
+        text-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 0 30px rgba(212, 175, 55, 0.4);
+    }
+
+    100% {
+        text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes pulse-btn {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+    }
+
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+    }
+}
+
+@keyframes bg-pan {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    overflow: hidden;
+    height: 90vh;
+    /* Fallback if image fails */
+    background: #000;
+}
+
+.hero__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/sunset_hero_bg.jpg');
+    background-size: cover;
+    background-position: center;
+    transform-origin: center;
+    animation: kenBurns 30s infinite alternate ease-in-out;
+    z-index: 1;
+}
+
+.hero__sun {
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, #ffd700 20%, #ff8c00 70%, transparent 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 40px #ff8c00, 0 0 80px #ff4500;
+    z-index: 1;
+    animation: setSun 20s infinite linear;
+}
+
+@keyframes setSun {
+    0% {
+        bottom: 40%;
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        bottom: 10%;
+        opacity: 0.8;
+        transform: translateX(-50%) scale(0.9);
+        box-shadow: 0 0 60px #ff4500, 0 0 100px #ff0000;
+    }
+
+    100% {
+        bottom: -10%;
+        opacity: 0;
+        transform: translateX(-50%) scale(0.8);
+    }
+}
+
+@keyframes kenBurns {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.15);
+    }
+}
+
+.hero__overlay {
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    padding: 0 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    /* Slight dim for readability */
+}
+
+/* Enhancing Text Readability over Sunset */
+.hero__title {
+    font-size: 4rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    animation: fadeInDown 1.2s ease-out;
+}
+
+.hero__subtitle {
+    font-size: 2rem;
+    color: #ffd700;
+    /* Gold */
+    margin-bottom: 1.5rem;
+    font-family: var(--font-family-serif);
+    font-style: italic;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    animation: fadeInUp 1.2s ease-out 0.2s backwards;
+}
+
+.hero__text {
+    font-size: 1.2rem;
+    color: #f0f0f0;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    line-height: 1.6;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    animation: fadeInUp 1.2s ease-out 0.4s backwards;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero__badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #d4af37 0%, #f9f295 50%, #d4af37 100%);
+    background-size: 200% 200%;
+    color: #1a1a1a;
+    padding: 0.6rem 2rem;
+    border-radius: 2px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 2rem;
+    animation: shimmer 3s infinite linear, fadeInDown 1s ease-out;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.hero__cta {
+    background: linear-gradient(135deg, #d4af37, #b48811);
+    color: #000;
+    border: none;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 1.2s ease-out 0.6s backwards;
+}
+
+.hero__cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+/* Particle Placeholder - can be simple CSS dots or keep existing if handled by JS, assuming CSS only for now, making it subtle overlay */
+.hero__particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Sections */
+.rooms-section,
+.facilities-section {
+    padding: var(--spacing-xl) 0;
+    position: relative;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-primary);
+    font-size: 2.5rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '❖';
+    /* Decorative diamond */
+    display: block;
+    font-size: 1.5rem;
+    color: var(--color-accent-primary);
+    margin-top: 1rem;
+    opacity: 0.8;
+}
+
+
+
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.facilities-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.facility-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-bg-tertiary);
+    /* Card background styles */
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Subtle border */
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+}
+
+.facility-item:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--color-accent-primary);
+}
+
+.facility-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.1);
+    /* Gold tint */
+    flex-shrink: 0;
+}
+
+.facility-icon img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    /* Make icons white if they are dark */
+}
+
+/* If icons are colored images, maybe remove filter */
+.facility-icon img {
+    filter: none;
+    /* Reset filter if they are colored pngs */
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+}
+
+.facility-text {
+    font-size: 1.1rem;
+    color: var(--color-text-primary);
+}

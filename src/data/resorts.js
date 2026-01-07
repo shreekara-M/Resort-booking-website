@@ -27,7 +27,7 @@ export const resorts = [
         location: 'Maldives',
         rating: 4.9,
         reviews: 2450,
-        price: '₹25,000',
+        price: '₹29,000',
         image: beachCover,
         description: 'Experience the ultimate luxury in our overwater bungalows.',
         amenities: ['Private Island', 'Coral Reef', 'Underwater Spa', 'Butler Service'],
